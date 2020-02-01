@@ -2,7 +2,7 @@ hello:
 	echo "Hello, World!"
 
 test:
-	echo "test"
+	go test ./... -v
 
 ls:
 	bash ~/Tmp/bootstrap.sh

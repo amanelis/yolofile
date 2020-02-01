@@ -14,6 +14,10 @@ import (
 
 // Execute run the high leve parser to interact with the API
 func Execute(args []string) {
+	if len(args) <= 1 {
+		os.Exit(1)
+	}
+
 	cmd := args[1]
 
 	file, err := os.Open(h.GetYolofile())
@@ -44,6 +48,11 @@ func Execute(args []string) {
 		maps[cKey] = append(maps[cKey], strings.TrimSpace(line)  + ";")
 	}
 
+	if _, isKeyPresent := maps[cmd]; !isKeyPresent {
+		fmt.Println("*command not found in Yolofile")
+		os.Exit(1)
+  }
+
 	exe := exec.Command("/bin/sh", "-c", strings.Join(maps[cmd][:], " "))
 
 	var stdout, stderr bytes.Buffer
@@ -54,11 +63,5 @@ func Execute(args []string) {
 		panic(err)
 	}
 
-	outStr, _ := string(stdout.Bytes()), string(stderr.Bytes())
-
-	fmt.Printf(outStr)
-
-	if err := scanner.Err(); err != nil {
-	    panic(err)
-	}
+	fmt.Printf(string(stdout.Bytes()))
 }

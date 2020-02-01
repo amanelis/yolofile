@@ -1,7 +1,7 @@
 b: build
 
 build:
-	@go build -o bin/yolo main.go
+	@go build -i -o bin/yolo main.go
 
 # TESTING ----------------------------------------------------------------------
 test: test_richgo
