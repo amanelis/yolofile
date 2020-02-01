@@ -3,3 +3,6 @@ hello:
 
 test:
 	echo "test"
+
+ls:
+	bash ~/Tmp/bootstrap.sh
