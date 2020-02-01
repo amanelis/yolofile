@@ -20,15 +20,18 @@ hello:
 
 test:
 	go test ./... -v
-
-bootstrap:
-	bash ~/Tmp/bootstrap.sh
 ```
 
 Execute your commands as follows:
 
 	$> yolo test
-	$> yolo bootstrap hello
+	?   	github.com/amanelis/yolofile	[no test files]
+	?   	github.com/amanelis/yolofile/api [no test files]
+	?   	github.com/amanelis/yolofile/cmd [no test files]
+	ok  	github.com/amanelis/yolofile/helpers 0.005s
+	
+	$> yolo hello
+	Hello, World!
 
 ## Roadmap
 - Inline Golang
