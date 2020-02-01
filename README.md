@@ -33,3 +33,7 @@ Execute your commands as follows:
 ## Roadmap
 - Inline Golang
 - Inline scope executed environment variables
+
+
+#### Disclaimer
+I threw this together over a few glasses of 🍷
