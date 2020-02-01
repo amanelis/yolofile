@@ -2,8 +2,10 @@ package api
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
 	"os"
+	"os/exec"
 	"regexp"
 	"strings"
 
@@ -12,8 +14,7 @@ import (
 
 // Execute run the high leve parser to interact with the API
 func Execute(args []string) {
-	fmt.Println("Command: ", args[1])
-	fmt.Println("Yolofile: ", h.GetYolofile())
+	cmd := args[1]
 
 	file, err := os.Open(h.GetYolofile())
 	if err != nil {
@@ -26,23 +27,36 @@ func Execute(args []string) {
 
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		line := scanner.Text()
+		line := strings.TrimSpace(scanner.Text())
 
 		method, _ := regexp.MatchString("^(.*):", line)
 		if method {
-			cKey = strings.Replace(strings.TrimSpace(line), ":", "", -1)
+			cKey = strings.Replace(line, ":", "", -1)
 			maps[cKey] = []string{}
 
 			continue
 		}
 
-		maps[cKey] = append(maps[cKey], strings.TrimSpace(line))
+		if line == "" {
+			continue
+		}
+
+		maps[cKey] = append(maps[cKey], strings.TrimSpace(line)  + ";")
 	}
 
-	fmt.Println(maps)
-	// for _, v := range data {
-	// 	fmt.Println(v)
-	// }
+	exe := exec.Command("/bin/sh", "-c", strings.Join(maps[cmd][:], " "))
+
+	var stdout, stderr bytes.Buffer
+  exe.Stdout = &stdout
+  exe.Stderr = &stderr
+
+	if err := exe.Run(); err != nil {
+		panic(err)
+	}
+
+	outStr, _ := string(stdout.Bytes()), string(stderr.Bytes())
+
+	fmt.Printf(outStr)
 
 	if err := scanner.Err(); err != nil {
 	    panic(err)
