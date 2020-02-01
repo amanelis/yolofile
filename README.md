@@ -19,7 +19,7 @@ hello:
 	echo "Hello, World!"
 
 test:
-	go test ./... -v
+	go test ./...
 ```
 
 Execute your commands as follows:
