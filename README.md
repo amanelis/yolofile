@@ -1,3 +1,3 @@
 # Introduction
 
-Let's build but not use Make because the OG bros wouldn't like us using Make for simple non-build like commands.
+Let's build but not use Make because the OG bros wouldn't like us using Make for simple non-build like commands and Rake uses Ruby, so that statement speaks for itself...
