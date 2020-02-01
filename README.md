@@ -24,3 +24,12 @@ test:
 bootstrap:
 	bash ~/Tmp/bootstrap.sh
 ```
+
+Execute your commands as follows:
+
+	$> yolo test
+	$> yolo bootstrap hello
+
+## Roadmap
+- Inline Golang
+- Inline scope executed environment variables
