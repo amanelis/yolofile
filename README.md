@@ -33,6 +33,7 @@ Execute your commands as follows:
 ## Roadmap
 - Inline Golang
 - Inline scope executed environment variables
+- One liner to install Yolo, cause we don't have time to run Make anymore
 
 
 #### Disclaimer
