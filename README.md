@@ -5,7 +5,7 @@ Let's build but not use Make because the OG bros wouldn't like us using Make for
 ![cardinal](yolo.jpg)
 
 ## Setup
-Were going to use Makefile to ironically setup Yolofile, one last hoora. The two below commands *should* install Yolofile into your filesystem.
+Were going to use Make to ironically setup Yolofile, one last hoora. The two below commands *should* install Yolofile into your filesystem.
 
 	$> make build
 	$> cp bin/yolo /usr/local/bin
