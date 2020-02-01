@@ -1,0 +1,6 @@
+hello:
+	echo "Hello, World!"
+	bash bootstrap.sh
+
+test:
+	bash test.sh
