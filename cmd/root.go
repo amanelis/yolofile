@@ -1,4 +1,4 @@
-package cmd
+package client
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/amanelis/yolofile/api"
+	"github.com/amanelis/yolofile/client"
 )
 
 var (
@@ -21,8 +21,8 @@ var (
 	}
 )
 
-// Execute executes the root command.
-func Execute() error {
+// Start executes the root command.
+func Start() error {
 	return rootCmd.Execute()
 }
 

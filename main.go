@@ -6,5 +6,5 @@ import (
 
 func main() {
 	// Start the CLI / error if fails
-	c.Execute()
+	c.Start()
 }
