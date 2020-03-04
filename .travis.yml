@@ -8,6 +8,11 @@ language: go
 go:
   - 1.13.x
 
+# Imports
+go_import_path:
+  - github.com/fatih/color
+  - github.com/spf13/cobra
+
 # Only clone the most recent commit.
 git:
   depth: 1
@@ -20,4 +25,4 @@ install: true
 # failing test, we want to see both. Configure golangci-lint with a
 # .golangci.yml file at the top level of your repo.
 script:
-  - go test -v -race ./...  # Run all the tests with the race detector enabled
+  - go test -v ./...  # Run all the tests with the race detector enabled
